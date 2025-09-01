@@ -20,7 +20,7 @@ class ContactInfoSchema(BaseModel):
 
 
 class WorkExperienceItemSchema(BaseModel):
-    company: str
+    company: Optional[str] = None
     role: Optional[str] = None
     location: Optional[str] = None
     start_date: Optional[str] = None  
@@ -48,11 +48,11 @@ class SkillSetSchema(BaseModel):
     technical: List[SkillItemSchema] = Field(default_factory=list)
     soft: List[str] = Field(default_factory=list)
     tools: List[SkillItemSchema] = Field(default_factory=list)
-    languages: List[Dict[str, str]] = Field(default_factory=list)
+    languages: List[str] = Field(default_factory=list)
 
 
 class ProjectItemSchema(BaseModel):
-    name: str
+    name: Optional[str] = None
     description: Optional[str] = None
     technologies_used: List[str] = Field(default_factory=list)
     link: Optional[str] = None
@@ -70,9 +70,9 @@ class CertificationItemSchema(BaseModel):
 
 class AwardItemSchema(BaseModel):
     name: Optional[str] = None
-    issuer: Optional[str]
-    date: Optional[str]
-    description: Optional[str]
+    issuer: Optional[str] = None
+    date: Optional[str] = None
+    description: Optional[str] = None
 
 class ResumeExtractedData(BaseModel):
     contact_info: Optional[ContactInfoSchema] = None

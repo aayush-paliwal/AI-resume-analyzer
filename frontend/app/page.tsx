@@ -1,8 +1,9 @@
+import { Display } from "@/components/display";
 
 const Home = () => {
   return (
     <div>
-      Home
+      <Display />
     </div>
   );
 }

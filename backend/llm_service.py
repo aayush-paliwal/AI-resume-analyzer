@@ -55,6 +55,7 @@ def parse_llm_json_output(ll_output_str: str, target_schema: type[schemas.BaseMo
     
     try:
         parsed_dict = json.loads(json_data_str)
+        print("Parsed Data: ", parsed_dict);
         validated_data = target_schema.model_validate(parsed_dict) 
         
         print(f"Successfully parsed and validated JSON against {target_schema.__name__}.")
@@ -168,12 +169,16 @@ async def extract_structured_data_from_text(resume_text: str) -> Optional[schema
             "resume_text": resume_text
         })
 
+        print("LLM Response: ", llm_response_str);
+
 
         if not llm_response_str:
             print("LLM returned an empty string for extraction.")
 
 
         extracted_data = parse_llm_json_output(llm_response_str.content, schemas.ResumeExtractedData)
+
+        print("Ext Data: ", extracted_data);
 
         return extracted_data
     
