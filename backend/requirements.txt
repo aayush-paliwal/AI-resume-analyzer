@@ -1,12 +1,10 @@
 fastapi[all]
+uvicorn
 sqlalchemy
-psycopg2-binary
-alembic
-psycopg2-binary
+pydantic
 python-dotenv
-langchain
+langchain-core
 langchain-google-genai
-google-generativeai
-python-multipart
-pypdfium2
 python-docx
+pdfminer-six
+asyncpg
