@@ -57,7 +57,7 @@ export const Display = () => {
         setError(null);
 
         try {
-            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}`);
+            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/resumes`);
             setResumes(res.data);
             console.log("Fetched: ", res.data);
         } catch (error) {
@@ -86,7 +86,7 @@ export const Display = () => {
         formData.append("file", file);
 
         try {
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/upload`, 
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/resumes/upload`, 
                 formData,
                 { 
                     headers: { "Content-Type": "multipart/form-data" },
@@ -109,7 +109,7 @@ export const Display = () => {
         setError(null);
 
         try {
-            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${id}`);
+            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/resumes/${id}`);
             setSelectedResume(res.data);
             setIsDialogOpen(true);
         } catch (error) {
