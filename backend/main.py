@@ -17,6 +17,7 @@ async def create_tables():
 
 origins = [
     "http://localhost:3000",
+    "https://ai-resume-analyzer-ruddy-iota.vercel.app/"
 ]
 
 app.add_middleware(
